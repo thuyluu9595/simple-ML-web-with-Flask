@@ -7,14 +7,14 @@
 <!--    Nav Bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -44,11 +44,14 @@
 </head>
 <body>
 <div>
-  <h1>Enter a number</h1>
-  <form>
-    <input type="text" name="value" placeholder="Enter a number" required="true">
+  <h1>House price predictor</h1>
+  <form action="{{ url_for('prediction')}}" method="post">
+    <input type="text" name="house_age" placeholder="Enter a house age" required="true">
+    <input type="text" name="distance" placeholder="Enter distance" required="true">
+    <input type="text" name="number_stores" placeholder="Enter a number of stores" required="true">
     <button type="submit" class="btn btn-primary" >Predict</button>
   </form>
+  <br>
   <b> {{ text }} </b>
 </div>
 
