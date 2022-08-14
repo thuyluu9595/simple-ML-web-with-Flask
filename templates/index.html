@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{url_for('prediction')}}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -45,14 +45,18 @@
 <body>
 <div>
   <h1>House price predictor</h1>
-  <form action="{{ url_for('prediction')}}" method="post">
-    <input type="text" name="house_age" placeholder="Enter a house age" required="true">
-    <input type="text" name="distance" placeholder="Enter distance" required="true">
-    <input type="text" name="number_stores" placeholder="Enter a number of stores" required="true">
-    <button type="submit" class="btn btn-primary" >Predict</button>
+    {% if form %}
+  <form method="POST">
+      {{ form.hidden_tag() }}
+      {{ form.house_age.label }} {{ form.house_age() }}
+      {{ form.distance.label }} {{ form.distance() }}
+      {{ form.number_of_stores.label }} {{ form.number_of_stores() }}
+      {{ form.submit() }}
   </form>
+    {% else %}
+    {% endif %}
   <br>
-  <b> {{ text }} </b>
+  <b> {{ value }} </b>
 </div>
 
 </body>
