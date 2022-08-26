@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.user_name.label }} {{ form.user_name() }}
+    {{ form.email.label }} {{ form.email() }}
+    {{ form.password.label }} {{ form.password() }}
+    {{ form.submit() }}
+</form>
+</body>
+</html>

@@ -12,9 +12,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('prediction')}}">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{url_for('main.home')}}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -34,30 +34,50 @@
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex">
+        <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+        <ul class="nav navbar-nav navbar-right">
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+            {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Log in</a></li>
+            {% endif %}
+        </ul>
+
     </div>
   </div>
 </nav>
 </head>
 <body>
+<!--
+{#<div>#}
+{#  <h1>House price predictor</h1>#}
+{#    {% if form %}#}
+{#  <form method="POST">#}
+{#      {{ form.hidden_tag() }}#}
+{#      {{ form.house_age.label }} {{ form.house_age() }}#}
+{#      {{ form.distance.label }} {{ form.distance() }}#}
+{#      {{ form.number_of_stores.label }} {{ form.number_of_stores() }}#}
+{#      {{ form.submit() }}#}
+{#  </form>#}
+{#    {% else %}#}
+{#    {% endif %}#}
+{#  <br>#}
+{#  <b> {{ value }} </b>#}
+{#</div>#}
+-->
+<h1>Welcome to this website</h1>
 <div>
-  <h1>House price predictor</h1>
-    {% if form %}
-  <form method="POST">
-      {{ form.hidden_tag() }}
-      {{ form.house_age.label }} {{ form.house_age() }}
-      {{ form.distance.label }} {{ form.distance() }}
-      {{ form.number_of_stores.label }} {{ form.number_of_stores() }}
-      {{ form.submit() }}
-  </form>
-    {% else %}
-    {% endif %}
-  <br>
-  <b> {{ value }} </b>
-</div>
+    <form action="{{ url_for('main.signup') }}">
+        <button class="btn btn-link" alt="Signup">Signup</button>
+    </form>
+    <form action="{{ url_for('auth.login') }}">
+        <button class="btn btn-link" alt="Signin">Signin</button>
+    </form>
 
+
+</div>
 </body>
 </html>
