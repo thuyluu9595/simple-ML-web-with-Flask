@@ -15,6 +15,8 @@ entrypoints==0.4
 executing==0.9.1
 fastjsonschema==2.16.1
 Flask==2.2.2
+Flask-Login==0.6.2
+Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.1
 ipykernel==6.15.1
 ipython==8.4.0
@@ -66,6 +68,7 @@ scipy==1.9.0
 Send2Trash==1.8.0
 six==1.16.0
 soupsieve==2.3.2.post1
+SQLAlchemy==1.4.40
 stack-data==0.3.0
 terminado==0.15.0
 threadpoolctl==3.1.0
